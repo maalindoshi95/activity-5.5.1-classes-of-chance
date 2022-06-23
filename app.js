@@ -1,9 +1,22 @@
 class Casino {
-    // Write code here
-};
+    constructor(name, isFakeCoin){
+        this.timesPlayed = 0
+        this.name = name
+        this.isFakeCoin = isFakeCoin
+    }
+    playGame(betAmount){
+        this.timesPlayed ++
+        if (Math.random() <= 0.5 || this.isFakeCoin == true){
+            console.log (this.name)
+        }
+        else {
+            console.log ("Player wins " + betAmount*(1+this.timesPlayed))
+        } 
+    }
+}
 
 // TESTS
-const myCasino = new Casino("HackerU Casino");
+const myCasino = new Casino("HackerU Casino", true);
 console.log(myCasino);
 myCasino.playGame(5);
 myCasino.playGame(15);
